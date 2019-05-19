@@ -33,6 +33,7 @@ public class GameplayScreen extends GameScreen {
     private Monster monster;
     private Controller controller;
     private BitmapFont goldFont;
+    private BitmapFont dmgFont;
     private String gold;
     private Texture hpBlank;
     private Texture hpLine;
@@ -42,10 +43,10 @@ public class GameplayScreen extends GameScreen {
     private UpgradeMenu upgradeMenu;
     private NpcList npcs;
     private NpcViewList npcViews;
+    private TotalDamage totalDamage;
 
     public GameplayScreen(GameScreenManager gsm) {
         super(gsm);
-        System.out.println("kekу");
         camera.setToOrtho(false, Main.WIDTH, Main.HEIGHT / 2f);
         earth = new GameObjectView("environment/earth.png", 1);
         sky = new GameObjectView("environment/sky.png", 1);
@@ -57,6 +58,7 @@ public class GameplayScreen extends GameScreen {
         hero = new Hero(10, 1);
         controller = new Controller(this);
         goldFont = new BitmapFont(Gdx.files.internal("gold.fnt"));
+        dmgFont = new BitmapFont(Gdx.files.internal("sch_for_damage_view.fnt"));
         hpBlank = new Texture("hpBar/hpBarOut.png");
         hpLine = new Texture("hpBar/hpBarIn.png");
         gold = "Gold: " + getHero().getGold();
@@ -66,6 +68,7 @@ public class GameplayScreen extends GameScreen {
         gui.addActor(menuButton);
         Gdx.input.setInputProcessor(gui);
         upgradeMenu = new UpgradeMenu(this, gui);
+        totalDamage = new TotalDamage();
     }
 
 
@@ -79,6 +82,7 @@ public class GameplayScreen extends GameScreen {
         monsterView.update(dt);
         npcViews.update(dt);
         npcs.update(monster, dt);
+        totalDamage.update(hero, npcs);
     }
 
     @Override
@@ -93,6 +97,8 @@ public class GameplayScreen extends GameScreen {
         batch.draw(hpBlank, 360 - hpBlank.getWidth() / 2, 582 - hpBlank.getHeight() / 2, hpBlank.getWidth(), hpBlank.getHeight() / 1.5f);
         batch.draw(hpLine, 360 - hpBlank.getWidth() / 2, 582 - hpBlank.getHeight() / 2, hpLine.getWidth() * monster.getHp() / monster.getMaxHp(), hpLine.getHeight() / 1.5f);
         npcViews.render(batch);
+        dmgFont.draw(batch, totalDamage.getAttackHeroDamage(),550,625);
+        dmgFont.draw(batch, totalDamage.getAttackNpcsDamage(),550,600);
         menuButton.setBounds(Gdx.graphics.getWidth() * 0.87f, Gdx.graphics.getHeight() * 0.005f, Gdx.graphics.getWidth() * 0.12f, Gdx.graphics.getHeight() * 0.089f);
         if (!damageViews.isEmpty()) {
             for (int i = 0; i < damageViews.size(); i++) {
