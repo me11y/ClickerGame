@@ -1,0 +1,145 @@
+
+buttons.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+npc1
+  rotate: false
+  xy: 1, 137
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1
+npc1_p
+  rotate: false
+  xy: 1, 27
+  size: 108, 108
+  orig: 108, 108
+  offset: 0, 0
+  index: -1
+menu
+  rotate: false
+  xy: 111, 145
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+menuPressed
+  rotate: false
+  xy: 111, 43
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+attack
+  rotate: false
+  xy: 213, 149
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+attackPressed
+  rotate: false
+  xy: 213, 51
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+equipment
+  rotate: false
+  xy: 311, 210
+  size: 146, 35
+  orig: 146, 35
+  offset: 0, 0
+  index: -1
+equipment_p
+  rotate: false
+  xy: 311, 173
+  size: 146, 35
+  orig: 146, 35
+  offset: 0, 0
+  index: -1
+pers2
+  rotate: false
+  xy: 459, 210
+  size: 146, 35
+  orig: 146, 35
+  offset: 0, 0
+  index: -1
+pers2_p
+  rotate: false
+  xy: 311, 136
+  size: 146, 35
+  orig: 146, 35
+  offset: 0, 0
+  index: -1
+items
+  rotate: false
+  xy: 459, 180
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+items_p
+  rotate: false
+  xy: 607, 217
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+npcs
+  rotate: false
+  xy: 311, 106
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+npcs_p
+  rotate: false
+  xy: 459, 150
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+pers
+  rotate: false
+  xy: 739, 217
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+pers_p
+  rotate: false
+  xy: 311, 76
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+settings
+  rotate: false
+  xy: 871, 217
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+settings_p
+  rotate: false
+  xy: 311, 46
+  size: 130, 28
+  orig: 130, 28
+  offset: 0, 0
+  index: -1
+menuExit
+  rotate: false
+  xy: 111, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+menuExit_p
+  rotate: false
+  xy: 153, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
