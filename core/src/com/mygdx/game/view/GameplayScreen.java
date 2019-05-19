@@ -45,6 +45,7 @@ public class GameplayScreen extends GameScreen {
 
     public GameplayScreen(GameScreenManager gsm) {
         super(gsm);
+        System.out.println("kek");
         camera.setToOrtho(false, Main.WIDTH, Main.HEIGHT / 2f);
         earth = new GameObjectView("environment/earth.png", 1);
         sky = new GameObjectView("environment/sky.png", 1);
