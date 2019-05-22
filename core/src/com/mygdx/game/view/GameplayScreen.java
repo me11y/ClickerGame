@@ -91,11 +91,11 @@ public class GameplayScreen extends GameScreen {
         batch.begin();
         batch.draw(sky.getTexture(), 253 - sky.getTexture().getWidth() / 2, 128 - sky.getTexture().getHeight() / 2, 720, 1280);
         batch.draw(monsterView.getTextureRegion(), 15, 84.43f, 705.6f, 416);
-        batch.draw(earth.getTexture(), 225.3f - earth.getTexture().getWidth() / 2, 64 - earth.getTexture().getHeight() / 2, 720, 1280);
+        batch.draw(earth.getTexture(), 0, -70, 720, 880);
         batch.draw(heroView.getTextureRegion(), 360 - heroView.getTexture().getWidth() / 2, 118 - heroView.getTexture().getHeight() / 2, 90, 67f);
         goldFont.draw(batch, gold, 360, 624.4f, 5, 5, true);
-        batch.draw(hpBlank, 360 - hpBlank.getWidth() / 2, 582 - hpBlank.getHeight() / 2, hpBlank.getWidth(), hpBlank.getHeight() / 1.5f);
-        batch.draw(hpLine, 360 - hpBlank.getWidth() / 2, 582 - hpBlank.getHeight() / 2, hpLine.getWidth() * monster.getHp() / monster.getMaxHp(), hpLine.getHeight() / 1.5f);
+        batch.draw(hpBlank, Gdx.graphics.getWidth()/2-hpBlank.getWidth()*1.3f/2, 582 - hpBlank.getHeight() / 2, hpBlank.getWidth()*1.3f, hpBlank.getHeight() / 2.5f);
+        batch.draw(hpLine, Gdx.graphics.getWidth()/2-hpBlank.getWidth()*1.3f/2, 582 - hpBlank.getHeight() / 2, hpLine.getWidth()*1.3f * monster.getHp() / monster.getMaxHp(), hpLine.getHeight() / 2.5f);
         npcViews.render(batch);
         dmgFont.draw(batch, totalDamage.getAttackHeroDamage(),550,625);
         dmgFont.draw(batch, totalDamage.getAttackNpcsDamage(),550,600);

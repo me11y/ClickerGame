@@ -28,6 +28,14 @@ public class NpcView extends GameObjectView {
             x=250;
             y=64;
         }
+        else if(i==2){
+            x=150;
+            y=64;
+        }
+        else if(i==3){
+            x=50;
+            y=64;
+        }
 
     }
 

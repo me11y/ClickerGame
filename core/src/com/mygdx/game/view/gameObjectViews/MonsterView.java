@@ -19,6 +19,8 @@ public class MonsterView extends GameObjectView {
     public MonsterView() {
         pathList.add("goblin");
         pathList.add("skeleton");
+        pathList.add("dragon");
+        pathList.add("octopus");
         path = pathList.get(rnd.nextInt(2));
         stay = newTexture("monsters/" + path + "/stay.png");
         damage = newTexture("monsters/" + path + "/damage.png");
@@ -37,7 +39,7 @@ public class MonsterView extends GameObjectView {
         }
         if(dead){
             if(objectAnimation.isAnimEnded()){
-                path = pathList.get(rnd.nextInt(2));
+                path = pathList.get(rnd.nextInt(pathList.size()));
                 stay = newTexture("monsters/" + path + "/stay.png");
                 damage = newTexture("monsters/" + path + "/damage.png");
                 dead=false;

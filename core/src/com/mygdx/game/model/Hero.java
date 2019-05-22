@@ -36,7 +36,7 @@ public class Hero {
 
     public void damageUpgrade() {
         if (gold >= damageUpgradePrice) {
-            damage *= 1.2f;
+            damage *= 1.5f;
             gold -= damageUpgradePrice;
             damageUpgradePrice *= 1.5f;
         }

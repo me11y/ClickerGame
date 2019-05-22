@@ -19,6 +19,9 @@ public class UpgradeMenu {
     private Button npcsButton;
     private Button npc1Button;
     private Button npc2Button;
+    private Button npc3Button;
+    private Button npc4Button;
+
     private BitmapFont fnt;
     private String price1;
     private String price2;
@@ -43,6 +46,10 @@ public class UpgradeMenu {
         npc1Button.setBounds(Gdx.graphics.getWidth() * 0.036f, Gdx.graphics.getHeight() * 0.25f, Gdx.graphics.getWidth() * 0.16f, Gdx.graphics.getHeight() * 0.1f);
         npc2Button = new Button(Buttons.npc1Button);
         npc2Button.setBounds(Gdx.graphics.getWidth() * 0.036f, Gdx.graphics.getHeight() * 0.17f, Gdx.graphics.getWidth() * 0.16f, Gdx.graphics.getHeight() * 0.1f);
+        npc3Button = new Button(Buttons.npc1Button);
+        npc3Button.setBounds(Gdx.graphics.getWidth() * 0.036f, Gdx.graphics.getHeight() * 0.09f, Gdx.graphics.getWidth() * 0.16f, Gdx.graphics.getHeight() * 0.1f);
+        npc4Button = new Button(Buttons.npc1Button);
+        npc4Button.setBounds(Gdx.graphics.getWidth() * 0.036f, Gdx.graphics.getHeight() * 0.01f, Gdx.graphics.getWidth() * 0.16f, Gdx.graphics.getHeight() * 0.1f);
         fnt = new BitmapFont(Gdx.files.internal("sch.fnt"));
         menu = 1;
     }
@@ -60,8 +67,12 @@ public class UpgradeMenu {
         else if(menu==2){
             price1 = "Price: " + gameplayScreen.getNpcs().getUpgradePrice(0);
             price2 =  "Price: " + gameplayScreen.getNpcs().getUpgradePrice(1);
+            price3 = "Price: " + gameplayScreen.getNpcs().getUpgradePrice(2);
+            price4 =  "Price: " + gameplayScreen.getNpcs().getUpgradePrice(3);
             fnt.draw(gameplayScreen.batch, price1, 150, 200);
             fnt.draw(gameplayScreen.batch, price2, 150, 150);
+            fnt.draw(gameplayScreen.batch, price3, 150, 100);
+            fnt.draw(gameplayScreen.batch, price4, 150, 50);
         }
         gameplayScreen.batch.end();
     }
@@ -77,6 +88,8 @@ public class UpgradeMenu {
         if(menu==2){
             gui.addActor(npc1Button);
             gui.addActor(npc2Button);
+            gui.addActor(npc3Button);
+            gui.addActor(npc4Button);
         }
         opened=true;
     }
@@ -120,5 +133,13 @@ public class UpgradeMenu {
 
     public Button getNpc2Button() {
         return npc2Button;
+    }
+
+    public Button getNpc3Button() {
+        return npc3Button;
+    }
+
+    public Button getNpc4Button() {
+        return npc4Button;
     }
 }

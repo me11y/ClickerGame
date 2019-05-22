@@ -57,6 +57,14 @@ public class Controller {
                 gameplayScreen.getUpgradeMenu().getNpc2Button().setChecked(false);
                 upgradeNpc(1);
             }
+            if(gameplayScreen.getUpgradeMenu().getNpc3Button().isChecked()){
+                gameplayScreen.getUpgradeMenu().getNpc3Button().setChecked(false);
+                upgradeNpc(2);
+            }
+            if(gameplayScreen.getUpgradeMenu().getNpc4Button().isChecked()){
+                gameplayScreen.getUpgradeMenu().getNpc4Button().setChecked(false);
+                upgradeNpc(3);
+            }
             if(gameplayScreen.getUpgradeMenu().getHeroButton().isChecked()){
                 gameplayScreen.getUpgradeMenu().getHeroButton().setChecked(false);
                 gameplayScreen.getUpgradeMenu().setMenu((short)1);
