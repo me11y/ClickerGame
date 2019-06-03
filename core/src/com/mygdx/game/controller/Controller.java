@@ -32,7 +32,7 @@ public class Controller {
         if (!gameplayScreen.getUpgradeMenu().isOpened()) {
             if (!gameplayScreen.getMonsterView().isDead()) {
                 if (Gdx.input.justTouched()) {
-                    if (Gdx.graphics.getHeight() - Gdx.input.getY() > Gdx.graphics.getHeight() / 5) {
+                    if (Gdx.graphics.getHeight() - Gdx.input.getY() > Gdx.graphics.getHeight() / 5.7f) {
                         gameplayScreen.getHeroView().attackAnimation();
                         gameplayScreen.getMonsterView().takeDamageAnimation();
                         gameplayScreen.getHero().attack(gameplayScreen.getMonster());

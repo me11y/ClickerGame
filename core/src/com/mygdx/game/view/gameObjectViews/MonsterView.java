@@ -21,7 +21,10 @@ public class MonsterView extends GameObjectView {
         pathList.add("skeleton");
         pathList.add("dragon");
         pathList.add("octopus");
-        path = pathList.get(rnd.nextInt(2));
+        pathList.add("plusheye");
+        pathList.add("darkknight");
+        pathList.add("demon");
+        path = pathList.get(rnd.nextInt(pathList.size()));
         stay = newTexture("monsters/" + path + "/stay.png");
         damage = newTexture("monsters/" + path + "/damage.png");
         death = newTexture("monsters/death1.png");

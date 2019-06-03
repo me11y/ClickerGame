@@ -15,6 +15,7 @@ import com.mygdx.game.model.Hero;
 import com.mygdx.game.model.Monster;
 import com.mygdx.game.model.Npc;
 import com.mygdx.game.model.NpcList;
+import com.mygdx.game.view.gameObjectViews.BackgroundView;
 import com.mygdx.game.view.gameObjectViews.GameObjectView;
 import com.mygdx.game.view.gameObjectViews.HeroView;
 import com.mygdx.game.view.gameObjectViews.MonsterView;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 
 public class GameplayScreen extends GameScreen {
 
-    private GameObjectView sky;
+    private BackgroundView bg;
     private GameObjectView earth;
     private HeroView heroView;
     private MonsterView monsterView;
@@ -44,23 +45,25 @@ public class GameplayScreen extends GameScreen {
     private NpcList npcs;
     private NpcViewList npcViews;
     private TotalDamage totalDamage;
+    private LevelView lvlView;
 
     public GameplayScreen(GameScreenManager gsm) {
         super(gsm);
         camera.setToOrtho(false, Main.WIDTH, Main.HEIGHT / 2f);
         earth = new GameObjectView("environment/earth.png", 1);
-        sky = new GameObjectView("environment/sky.png", 1);
+        bg = new BackgroundView();
         heroView = new HeroView("hero/Stay.png", 1);
         monsterView = new MonsterView();
         monster = new Monster(100);
         npcs = new NpcList();
         npcViews = new NpcViewList();
-        hero = new Hero(10, 1);
+        hero = new Hero(10);
         controller = new Controller(this);
         goldFont = new BitmapFont(Gdx.files.internal("gold.fnt"));
         dmgFont = new BitmapFont(Gdx.files.internal("sch_for_damage_view.fnt"));
         hpBlank = new Texture("hpBar/hpBarOut.png");
         hpLine = new Texture("hpBar/hpBarIn.png");
+        lvlView = new LevelView();
         gold = "Gold: " + getHero().getGold();
         Buttons.load();
         menuButton = new Button(Buttons.menuButton);
@@ -83,22 +86,24 @@ public class GameplayScreen extends GameScreen {
         npcViews.update(dt);
         npcs.update(monster, dt);
         totalDamage.update(hero, npcs);
+        lvlView.update(monster);
     }
 
     @Override
     public void render() {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(sky.getTexture(), 253 - sky.getTexture().getWidth() / 2, 128 - sky.getTexture().getHeight() / 2, 720, 1280);
+        batch.draw(bg.getTexture(), 0, 0, 720, 650);
         batch.draw(monsterView.getTextureRegion(), 15, 84.43f, 705.6f, 416);
         batch.draw(earth.getTexture(), 0, -70, 720, 880);
         batch.draw(heroView.getTextureRegion(), 360 - heroView.getTexture().getWidth() / 2, 118 - heroView.getTexture().getHeight() / 2, 90, 67f);
         goldFont.draw(batch, gold, 360, 624.4f, 5, 5, true);
-        batch.draw(hpBlank, Gdx.graphics.getWidth()/2-hpBlank.getWidth()*1.3f/2, 582 - hpBlank.getHeight() / 2, hpBlank.getWidth()*1.3f, hpBlank.getHeight() / 2.5f);
-        batch.draw(hpLine, Gdx.graphics.getWidth()/2-hpBlank.getWidth()*1.3f/2, 582 - hpBlank.getHeight() / 2, hpLine.getWidth()*1.3f * monster.getHp() / monster.getMaxHp(), hpLine.getHeight() / 2.5f);
+        batch.draw(hpBlank, 160, 582 - hpBlank.getHeight() / 2, hpBlank.getWidth()*1.3f, hpBlank.getHeight() / 2.5f);
+        batch.draw(hpLine, 160, 582 - hpBlank.getHeight() / 2, hpLine.getWidth()*1.3f * monster.getHp() / monster.getMaxHp(), hpLine.getHeight() / 2.5f);
         npcViews.render(batch);
         dmgFont.draw(batch, totalDamage.getAttackHeroDamage(),550,625);
         dmgFont.draw(batch, totalDamage.getAttackNpcsDamage(),550,600);
+        dmgFont.draw(batch, lvlView.getLvl(), 30, 625);
         menuButton.setBounds(Gdx.graphics.getWidth() * 0.87f, Gdx.graphics.getHeight() * 0.005f, Gdx.graphics.getWidth() * 0.12f, Gdx.graphics.getHeight() * 0.089f);
         if (!damageViews.isEmpty()) {
             for (int i = 0; i < damageViews.size(); i++) {
@@ -122,7 +127,7 @@ public class GameplayScreen extends GameScreen {
 
     @Override
     public void dispose() {
-        sky.dispose();
+        bg.dispose();
         earth.dispose();
         heroView.dispose();
     }

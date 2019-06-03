@@ -21,7 +21,7 @@ public class NpcViewList {
 
     public void render(SpriteBatch batch){
         for (int i : npcViews.keySet()) {
-            batch.draw(npcViews.get(i).getTextureRegion(), npcViews.get(i).getX(), npcViews.get(i).getY(), 300, 150);
+            batch.draw(npcViews.get(i).getTextureRegion(), npcViews.get(i).getX(), npcViews.get(i).getY(), 200, 170);
         }
     }
 

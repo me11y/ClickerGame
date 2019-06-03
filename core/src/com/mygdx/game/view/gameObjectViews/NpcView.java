@@ -17,26 +17,32 @@ public class NpcView extends GameObjectView {
 
 
     public NpcView(int i) {
-        stay = newTexture("npc/stay.png");
-        damage = newTexture("npc/attack.png");
-        stayAnimation();
         if(i==0){
-            x=350;
+            x=550;
             y=64;
+            stay = newTexture("npc/ghost/stay.png");
+            damage = newTexture("npc/ghost/attack.png");
+
         }
         else if(i==1){
-            x=250;
+            x=400;
             y=64;
+            stay = newTexture("npc/mirona/stay.png");
+            damage = newTexture("npc/mirona/attack.png");
         }
         else if(i==2){
-            x=150;
+            x=250;
             y=64;
+            stay = newTexture("npc/knight/stay.png");
+            damage = newTexture("npc/knight/attack.png");
         }
         else if(i==3){
-            x=50;
+            x=100;
             y=64;
+            stay = newTexture("npc/dog/stay.png");
+            damage = newTexture("npc/dog/attack.png");
         }
-
+        stayAnimation();
     }
 
     public void update(float dt) {

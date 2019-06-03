@@ -2,21 +2,15 @@ package com.mygdx.game.model;
 
 public class Hero {
     int damage;
-    int lvl;
     long gold = 0;
     int damageUpgradePrice = 20;
 
-    public Hero(int damage, int lvl) {
+    public Hero(int damage) {
         this.damage = damage;
-        this.lvl = lvl;
     }
 
     public void attack(Monster target) {
         target.takeDamage(damage);
-    }
-
-    public void lvlUp() {
-        lvl++;
     }
 
     public void getMoreGold(long gold) {
