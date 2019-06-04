@@ -1,9 +1,9 @@
 package com.mygdx.game.model;
 
 public class Hero {
-    int damage;
-    long gold = 0;
-    int damageUpgradePrice = 20;
+    private int damage;
+    private long gold = 0;
+    private int damageUpgradePrice = 20;
 
     public Hero(int damage) {
         this.damage = damage;
