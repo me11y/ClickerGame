@@ -9,10 +9,12 @@ public class Hero {
         this.damage = damage;
     }
 
+    //нанести урон монстру
     public void attack(Monster target) {
         target.takeDamage(damage);
     }
 
+    //дать герою золота
     public void getMoreGold(long gold) {
         this.gold += gold;
     }

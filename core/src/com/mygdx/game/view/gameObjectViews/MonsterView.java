@@ -48,7 +48,7 @@ public class MonsterView extends GameObjectView {
                     path = pathList.get(rnd.nextInt(pathList.size()));
                 }
                 else{
-                    path = bossList.get(rnd.nextInt(pathList.size()));
+                    path = bossList.get(rnd.nextInt(bossList.size()));
                 }
                 stay = newTexture("monsters/" + path + "/stay.png");
                 damage = newTexture("monsters/" + path + "/damage.png");
