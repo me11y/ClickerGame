@@ -20,7 +20,7 @@ public class Monster {
 
     public void die() {
         maxHp *= 1.1f;
-        gold *= 10f;
+        gold += 1;
         sublvl++;
         if(sublvl == 10){
             maxHp *= 2;
