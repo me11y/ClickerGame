@@ -35,8 +35,7 @@ public class GameplayScreen extends GameScreen {
     private Controller controller;
     private BitmapFont goldFont;
     private BitmapFont dmgFont;
-    private Texture hpBlank;
-    private Texture hpLine;
+    private HpLine hpLine;
     private ArrayList<DamageView> damageViews = new ArrayList<DamageView>();
     private Button menuButton;
     private Stage gui;
@@ -60,9 +59,8 @@ public class GameplayScreen extends GameScreen {
         controller = new Controller(this);
         goldFont = new BitmapFont(Gdx.files.internal("gold.fnt"));
         dmgFont = new BitmapFont(Gdx.files.internal("sch_for_damage_view.fnt"));
-        hpBlank = new Texture("hpBar/hpBarOut.png");
-        hpLine = new Texture("hpBar/hpBarIn.png");
         lvlView = new LevelView();
+        hpLine = new HpLine();
         Buttons.load();
         menuButton = new Button(Buttons.menuButton);
         gui = new Stage();
@@ -95,9 +93,8 @@ public class GameplayScreen extends GameScreen {
         batch.draw(earth.getTexture(), 0, -70, 720, 880);
         batch.draw(heroView.getTextureRegion(), 360 - heroView.getTexture().getWidth() / 2, 118 - heroView.getTexture().getHeight() / 2, 90, 67f);
         goldFont.draw(batch, "GOLD: " + getHero().getGold(), 360, 624.4f, 5, 5, true);
-        batch.draw(hpBlank, 160, 582 - hpBlank.getHeight() / 2, hpBlank.getWidth() * 1.3f, hpBlank.getHeight() / 2.5f);
-        batch.draw(hpLine, 160, 582 - hpBlank.getHeight() / 2, hpLine.getWidth() * 1.3f * monster.getHp() / monster.getMaxHp(), hpLine.getHeight() / 2.5f);
         npcViews.render(batch);
+        hpLine.render(batch, monster);
         dmgFont.draw(batch, totalDamage.getAttackHeroDamage(), 550, 625);
         dmgFont.draw(batch, totalDamage.getAttackNpcsDamage(), 550, 600);
         dmgFont.draw(batch, lvlView.getLvl(), 30, 625);
