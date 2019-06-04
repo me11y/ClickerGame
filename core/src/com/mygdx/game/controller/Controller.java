@@ -25,6 +25,13 @@ public class Controller {
                 gameplayScreen.newDamageViewNpc();
             }
         }
+        if(gameplayScreen.getMonster().isLvlChanged()){
+            gameplayScreen.getMonster().setLvlChanged();
+            gameplayScreen.changeBackground();
+        }
+        if(gameplayScreen.getMonster().getSublvl()==10 && !gameplayScreen.getMonsterView().isBoss()){
+            gameplayScreen.getMonsterView().setBoss(true);
+        }
     }
 
     public void handleInput() {

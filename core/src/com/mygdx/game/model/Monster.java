@@ -1,11 +1,12 @@
 package com.mygdx.game.model;
 
 public class Monster {
-    int hp;
-    int maxHp = 100;
-    float gold = 1;
-    int lvl;
-    int sublvl;
+    private int hp;
+    private int maxHp = 100;
+    private float gold = 1;
+    private int lvl;
+    private int sublvl;
+    private boolean lvlChanged;
 
     public Monster(int hp) {
         this.hp = hp;
@@ -30,6 +31,7 @@ public class Monster {
             sublvl = 0;
             gold /= 1.3f;
             maxHp /= 1.5f;
+            lvlChanged = true;
         }
         hp = maxHp;
     }
@@ -48,5 +50,17 @@ public class Monster {
 
     public int getMaxHp() {
         return maxHp;
+    }
+
+    public void setLvlChanged(){
+        lvlChanged = false;
+    }
+
+    public boolean isLvlChanged() {
+        return lvlChanged;
+    }
+
+    public int getSublvl() {
+        return sublvl;
     }
 }

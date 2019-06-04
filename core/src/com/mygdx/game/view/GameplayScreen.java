@@ -35,7 +35,6 @@ public class GameplayScreen extends GameScreen {
     private Controller controller;
     private BitmapFont goldFont;
     private BitmapFont dmgFont;
-    private String gold;
     private Texture hpBlank;
     private Texture hpLine;
     private ArrayList<DamageView> damageViews = new ArrayList<DamageView>();
@@ -64,7 +63,6 @@ public class GameplayScreen extends GameScreen {
         hpBlank = new Texture("hpBar/hpBarOut.png");
         hpLine = new Texture("hpBar/hpBarIn.png");
         lvlView = new LevelView();
-        gold = "Gold: " + getHero().getGold();
         Buttons.load();
         menuButton = new Button(Buttons.menuButton);
         gui = new Stage();
@@ -81,7 +79,6 @@ public class GameplayScreen extends GameScreen {
         controller.update();
         heroView.update(dt);
         hero.update();
-        gold = "GOLD: " + getHero().getGold();
         monsterView.update(dt);
         npcViews.update(dt);
         npcs.update(monster, dt);
@@ -97,13 +94,16 @@ public class GameplayScreen extends GameScreen {
         batch.draw(monsterView.getTextureRegion(), 15, 84.43f, 705.6f, 416);
         batch.draw(earth.getTexture(), 0, -70, 720, 880);
         batch.draw(heroView.getTextureRegion(), 360 - heroView.getTexture().getWidth() / 2, 118 - heroView.getTexture().getHeight() / 2, 90, 67f);
-        goldFont.draw(batch, gold, 360, 624.4f, 5, 5, true);
-        batch.draw(hpBlank, 160, 582 - hpBlank.getHeight() / 2, hpBlank.getWidth()*1.3f, hpBlank.getHeight() / 2.5f);
-        batch.draw(hpLine, 160, 582 - hpBlank.getHeight() / 2, hpLine.getWidth()*1.3f * monster.getHp() / monster.getMaxHp(), hpLine.getHeight() / 2.5f);
+        goldFont.draw(batch, "GOLD: " + getHero().getGold(), 360, 624.4f, 5, 5, true);
+        batch.draw(hpBlank, 160, 582 - hpBlank.getHeight() / 2, hpBlank.getWidth() * 1.3f, hpBlank.getHeight() / 2.5f);
+        batch.draw(hpLine, 160, 582 - hpBlank.getHeight() / 2, hpLine.getWidth() * 1.3f * monster.getHp() / monster.getMaxHp(), hpLine.getHeight() / 2.5f);
         npcViews.render(batch);
-        dmgFont.draw(batch, totalDamage.getAttackHeroDamage(),550,625);
-        dmgFont.draw(batch, totalDamage.getAttackNpcsDamage(),550,600);
+        dmgFont.draw(batch, totalDamage.getAttackHeroDamage(), 550, 625);
+        dmgFont.draw(batch, totalDamage.getAttackNpcsDamage(), 550, 600);
         dmgFont.draw(batch, lvlView.getLvl(), 30, 625);
+        if (monsterView.isBoss()) {
+            dmgFont.draw(batch, "BOSS", 330, 575);
+        }
         menuButton.setBounds(Gdx.graphics.getWidth() * 0.87f, Gdx.graphics.getHeight() * 0.005f, Gdx.graphics.getWidth() * 0.12f, Gdx.graphics.getHeight() * 0.089f);
         if (!damageViews.isEmpty()) {
             for (int i = 0; i < damageViews.size(); i++) {
@@ -182,5 +182,9 @@ public class GameplayScreen extends GameScreen {
 
     public NpcViewList getNpcViews() {
         return npcViews;
+    }
+
+    public void changeBackground() {
+        bg.changeBg();
     }
 }
