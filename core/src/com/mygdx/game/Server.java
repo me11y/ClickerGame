@@ -8,9 +8,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+//класс, отвечающий за раюоту с http-сервером
 public class Server {
-    public static void getAccs(String request){
-        String query = "http://localhost:8080/" + request;
+    public static void getAccs(){
+        String query = "http://localhost:8080/accounts";
         HttpURLConnection connection = null;
 
         try {

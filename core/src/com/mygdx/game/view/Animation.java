@@ -13,6 +13,7 @@ public class Animation {
     private boolean animEnded;
 
     public Animation(TextureRegion region, int frameCount, float cycleTime) {
+        //работа с регионами текстур
         maxFrames = frameCount;
         frames = new Array<TextureRegion>();
         int frameWidth = region.getRegionWidth() / frameCount;
@@ -25,6 +26,7 @@ public class Animation {
     }
 
     public void update(float dtime) {
+        //сам процесс анимации
         if (currentFrame == 0) animEnded = false;
         currentFrameTime += dtime;
         if (currentFrameTime > maxFrameTime) {

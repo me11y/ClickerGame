@@ -8,6 +8,7 @@ public class Npc {
     private int damageUpgradePrice;
 
     public Npc(int i) {
+        //разные нпс
         if(i==0){
             damage = 5;
             damageUpgradePrice=20;

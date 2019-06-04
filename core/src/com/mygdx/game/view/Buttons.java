@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-
+//скины для кнопок
 public class Buttons {
     public static com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle menuButton, attackButton, menuExit, hero, npcs, equipment, npc1Button;
     public static Skin skin;

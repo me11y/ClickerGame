@@ -60,6 +60,7 @@ public class UpgradeMenu {
         gameplayScreen.batch.end();
         gui.draw();
         gameplayScreen.batch.begin();
+        //вкладки меню
         if(menu==1) {
             price1 = "Price: " + gameplayScreen.getHero().getDamageUpgradePrice();
             fnt.draw(gameplayScreen.batch, price1, 150, 200);

@@ -17,6 +17,7 @@ public class NpcView extends GameObjectView {
 
 
     public NpcView(int i) {
+        //разные нпс
         if(i==0){
             x=550;
             y=64;

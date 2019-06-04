@@ -19,17 +19,7 @@ public class Hero {
         this.gold += gold;
     }
 
-    public long getGold() {
-        return gold;
-    }
-
-    public void update() {
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
+    //улучшение наносимого урона
     public void damageUpgrade() {
         if (gold >= damageUpgradePrice) {
             damage *= 1.5f;
@@ -38,16 +28,28 @@ public class Hero {
         }
     }
 
-    public void npcUpgrade(int price){
-        gold-=price;
-    }
-
+    //может ли герой себе позволить улучшение
     public boolean isAbleToUpgrade(int price){
         if(gold>=price) return true;
         return false;
     }
 
+    //снять деньги за улучшение нпс
+    public void npcUpgrade(int price){
+        gold-=price;
+    }
+
     public int getDamageUpgradePrice() {
         return damageUpgradePrice;
+    }
+
+    public long getGold() {
+        return gold;
+    }
+
+    public void update() {
+    }
+    public int getDamage() {
+        return damage;
     }
 }

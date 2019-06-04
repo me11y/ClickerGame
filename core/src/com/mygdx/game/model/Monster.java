@@ -1,12 +1,12 @@
 package com.mygdx.game.model;
 
 public class Monster {
-    private int hp;
-    private int maxHp = 100;
-    private float gold = 1;
-    private int lvl;
-    private int sublvl;
-    private boolean lvlChanged;
+    private int hp; //текущее значение ХП
+    private int maxHp = 100; //максимум ХП у данного монстра
+    private float gold = 1; //золото, которое выпадает с монстра
+    private int lvl; //текущий уровень
+    private int sublvl; //текущий подуровень
+    private boolean lvlChanged; //переменная, уведомляющая о смене уровня
 
     public Monster(int hp) {
         this.hp = hp;
@@ -18,6 +18,7 @@ public class Monster {
         hp -= damage;
     }
 
+    //смерть монстра
     public void die() {
         maxHp *= 1.1f;
         gold += 1;

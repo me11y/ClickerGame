@@ -16,7 +16,7 @@ public class DamageView {
     private int startY;
     private boolean ended;
     Random rnd = new Random();
-
+    //отображение урона
     public DamageView(int damage) {
         this.damage = "" + damage;
         x = rnd.nextInt(200)+220;
